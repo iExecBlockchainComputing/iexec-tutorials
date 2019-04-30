@@ -1,0 +1,62 @@
+{
+  "description": "My iExec ressource description, must be at least 150 chars long in order to pass the validation checks. Describe your application, dataset or workerpool to your users",
+  "license": "MIT",
+  "author": "?",
+  "social": {
+    "website": "?",
+    "github": "?"
+  },
+  "logo": "logo.png",
+  "buyConf": {
+    "params": "{ \"0\": \"\" }",
+    "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "trust": 0
+  },
+  "app": {
+    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+    "name": "CloudCoin",
+    "type": "DOCKER",
+    "multiaddr": "registry.hub.docker.com/iexechub/cloudcoin",
+    "checksum": "0x5496bd85e2b787b3a84dc7fb53e4d2c952f9eab13419e0f496be7eeefcc66bd6",
+    "mrenclave": ""
+  },
+  "order": {
+    "apporder": {
+      "app": "0x34ee0Ff4d086d379D49dbE4b36950919F543a214",
+      "appprice": 2,
+      "volume": 1000000,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "datasetrestrict": "0x0000000000000000000000000000000000000000",
+      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    },
+    "datasetorder": {
+      "dataset": "0x6adCFA912F48DB253DFdf1271e2EB6032C63e242",
+      "datasetprice": 3,
+      "volume": 1000000,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "apprestrict": "0x0000000000000000000000000000000000000000",
+      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    }
+  },
+  "dapps": [
+    {
+      "name": "Recomanded-dapp-for-MyDataset",
+      "addresses": {
+        "42": "0x0000000000000000000000000000000000000000"
+      },
+      "buyConf": {
+        "params": "{ \"0\": \"\" }",
+        "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "trust": 0
+      }
+    }
+  ],
+  "dataset": {
+    "owner": "0x9CdDC59c3782828724f55DD4AB4920d98aA88418",
+    "name": "cloudcoin190428",
+    "multiaddr": "https://raw.githubusercontent.com/ericr6/CloudCoinAnalysis/master/dataset/cloudcoin_2019-04-28.zip",
+    "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}
