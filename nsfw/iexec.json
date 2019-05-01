@@ -1,0 +1,34 @@
+{
+  "description": "My iExec ressource description, must be at least 150 chars long in order to pass the validation checks. Describe your application, dataset or workerpool to your users",
+  "license": "MIT",
+  "author": "?",
+  "social": {
+    "website": "?",
+    "github": "?"
+  },
+  "logo": "logo.png",
+  "buyConf": {
+    "params": "{ \"0\": \"\" }",
+    "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "trust": 0
+  },
+  "app": {
+    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+    "name": "nsfw_prediction",
+    "type": "DOCKER",
+    "multiaddr": "registry.hub.docker.com/iexechub/nsfw_prediction:1.0",
+    "checksum": "0x31615e92970cb7e99b312fa863904fe92fd72d0062c6613493abad448bf90082",
+    "mrenclave": ""
+  },
+  "order": {
+    "apporder": {
+      "app": "0x775343a03799484a8Bec5a25C65d0af9f39F49d2",
+      "appprice": 5,
+      "volume": 1000000,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "datasetrestrict": "0x0000000000000000000000000000000000000000",
+      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    }
+  }
+}

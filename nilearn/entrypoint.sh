@@ -1,5 +1,5 @@
 #!/bin/bash
-
+<
 NIDIR=/iexec_in/nilearn_data
 cd /iexec_in
 unzip $NIDIR.zip
