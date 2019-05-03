@@ -9,7 +9,7 @@ echo "DATASET_FILENAME is" $DATASET_FILENAME
 
 #Download (unzip) the model as a dataset
 ls /iexec_in
-mv $DATASET_FILENAME /iexec_in/nsfw_model.zip
+mv /iexec_in/$DATASET_FILENAME /iexec_in/nsfw_model.zip
 cp /iexec_in/nsfw_model.zip /.
 unzip nsfw_model.zip
 
