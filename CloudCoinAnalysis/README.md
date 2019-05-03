@@ -267,6 +267,8 @@ c2aef59972ae3a35b319310e5fdfe43cbb72ba0e57050b1b
 From the marketplace, this is possible to process a cloud coin analysis   
 You only need dataset and dapp addresses deployed, the markeplace find out the corresponding orders.
 
-![buy a analysis](/images/buy.png)
+![buy a analysis](images/buy.png)
 
-Future work:
+Future work/next step:
+ * Best prediction algorithm.
+ * use iExec security layers for data privacy.   
