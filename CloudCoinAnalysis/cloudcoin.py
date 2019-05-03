@@ -301,11 +301,11 @@ plt.savefig(dir + 'Correlation_Heatmap')
 
 returns = close.apply(lambda x: x/x[0])
 returns.plot(figsize=(12,6))
-plt.ylabel('Return ration')
+plt.ylabel('Return ratio')
 plt.xlabel('time')
-plt.title('Return of each Cryptocurrencies\n return ratio = current value of the cryptocurrency / initial value of the cryptocurrency' + title_tstamp)
+plt.title('ROI of each Cryptocurrencies in 2019\n return ratio = current value of the cryptocurrency / initial value of the cryptocurrency' + title_tstamp)
 
-plt.savefig(dir + 'Return_of_each_Cryptocurrencies')
+plt.savefig(dir + 'ROI_of_each_Cryptocurrencies')
 
 # ### Candlestick Charts Using Plotly (BitCoin)<a id="3-6"></a>
 # A candlestick chart (also called Japanese candlestick chart) is a style of financial chart used
