@@ -22,7 +22,7 @@ The code is derivated from:
 * https://github.com/JesseVent/crypto for the building dataset
 
 
-##Building datasets:
+## Create and store datasets on your data wallet
 
 The Crypto R package helps to download historical Cryptocurrency Prices For any Tokens using the CoinMarketCap API
 
@@ -39,7 +39,7 @@ Then create the zip file and place the zip in the dataset repo.
  zip dataset/cloudcoin_2019-05-02.zip cloudcoin_2019-05-02.csv
 ```
 
-### Register the dataset in the blockchain
+### Register the dataset on the blockchain
 
 Let's register the access to the dataset, the dataset is not store in ethereum, only access and managament.
 
@@ -68,7 +68,7 @@ Please enter your password to unlock your wallet [hidden]
 ✔ Deployed new dataset at address 0xFCE3F07D96b0f2458Bb82868087AcAE636232B4E
 ```
 
-###Publish selling order for the dataset.
+### Publish selling order for the dataset.
 
 As the dataset is now registered ad ownership is store on the blockchain; the owner has to publish an order defining the price, the volume and restrictions for the usage of the dataset.
 
@@ -157,6 +157,116 @@ publicationTimestamp: 2019-05-03T12:02:54.960Z
 signer:               0x9CdDC59c3782828724f55DD4AB4920d98aA88418
 ```
 
+## Deploy the application
 
+The application can process all datasets created as above
+
+The application is available at
+https://cloud.docker.com/u/iexechub/repository/docker/iexechub/cloudcoin/general
+
+Source code in the current repository.
+
+### Register applications on the blockchain
+
+The registration is similar to the dataset registration.
+First, we will register the application and then publish orders with defining price, volume and restriction.
+
+```
+iexec app int
+```
+
+Edit iexec.json file, and set up the name, the address and the hash of the docker image
+For a docker the checksum is obtained with a docker of the image
+Do not forget to add a "0x" prefix to the hash.
+
+"checksum": "0xhashdockerimage"   
+
+```
+"app": {
+    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+    "name": "CloudCoin",
+    "type": "DOCKER",
+    "multiaddr": "registry.hub.docker.com/iexechub/cloudcoin",
+    "checksum": "0x5496bd85e2b787b3a84dc7fb53e4d2c952f9eab13419e0f496be7eeefcc66bd6",
+    "mrenclave": ""
+  },
+```
+
+Deploy the application
+
+```
+iexec app deploy
+ℹ using chain [kovan]
+? Using wallet developper_wallet
+Please enter your password to unlock your wallet [hidden]
+✔ Deployed new app at address 0x814FCFf7aa640F3b59CADF8011F89B55D3De3368
+```
+
+### Publish app order
+
+Create the  configuration section in iexec.json
+
+```
+iexec order init --app --wallet-file developper_wallet
+ℹ using chain [kovan]
+✔ Saved default apporder in "iexec.json", you can edit it:
+app:                0x814FCFf7aa640F3b59CADF8011F89B55D3De3368
+appprice:           0
+volume:             1000000
+tag:                0x0000000000000000000000000000000000000000000000000000000000000000
+datasetrestrict:    0x0000000000000000000000000000000000000000
+workerpoolrestrict: 0x0000000000000000000000000000000000000000
+requesterrestrict:  0x0000000000000000000000000000000000000000
+
+```
+
+Set up price, volume and restriction
+For this app, restriction are not required.
+Sign and publish app order
+
+```
+iexec order sign --app --wallet-file developper_wallet
+ℹ using chain [kovan]
+? Using wallet developper_wallet
+Please enter your password to unlock your wallet [hidden]
+✔ apporder signed and saved in orders.json, you can share it:
+app:                0x814FCFf7aa640F3b59CADF8011F89B55D3De3368
+appprice:           0
+volume:             1000000
+tag:                0x0000000000000000000000000000000000000000000000000000000000000000
+datasetrestrict:    0x0000000000000000000000000000000000000000
+workerpoolrestrict: 0x0000000000000000000000000000000000000000
+requesterrestrict:  0x0000000000000000000000000000000000000000
+salt:               0xe0fe46a67f63ce09a5e0e847f6615111733b25db3dfd3086b216f6410201a14e
+sign:               0xc06660e58e7d3eed37b967986ed060be0f5cb67351cb4d9b2bf52ece2cca46ce4e523bbd83b48f8874c2aef59972ae3a35b319310e5fdfe43cbb72ba0e57050b1b
+```
+
+
+```
+iexec order publish --app --wallet-file developper_wallet
+? Using wallet developper_wallet
+? Using wallet developper_wallet
+Please enter your password to unlock your wallet [hidden]
+? Do you want to publish the following apporder?
+app:                0x814FCFf7aa640F3b59CADF8011F89B55D3De3368
+appprice:           0
+volume:             1000000
+tag:                0x0000000000000000000000000000000000000000000000000000000000000000
+datasetrestrict:    0x0000000000000000000000000000000000000000
+workerpoolrestrict: 0x0000000000000000000000000000000000000000
+requesterrestrict:  0x0000000000000000000000000000000000000000
+salt:               0xe0fe46a67f63ce09a5e0e847f6615111733b25db3dfd3086b216f6410201a14e
+sign:               0xc06660e58e7d3eed37b967986ed060be0f5cb67351cb4d9b2bf52ece2cca46ce4e523bbd83b48f8874
+c2aef59972ae3a35b319310e5fdfe43cbb72ba0e57050b1b
+ Yes
+✔ apporder successfully published with orderHash 0x940b6be33f364ed4fa2d70e09451118d1e50433da5ced4d477e5c0dceb843610
+```
+
+##Run a analysis
+
+From the marketplace, this is possible to process a cloud coin analysis   
+You only need dataset and dapp addresses deployed, the markeplace find out the corresponding orders.
+
+![buy a analysis](/images/buy.png)
 
 Future work:
