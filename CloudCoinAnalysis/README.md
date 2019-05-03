@@ -1,13 +1,14 @@
 # CloudCoinAnalysis
 
 
-Analysis of the 3 main cryptocurrencies offering a cloud computing solution or similar: golem, sonm and iexec   
+Analysis of the 3 main cryptocurrencies offering a cloud computing solution:  GOLEM, SONM and IEXEC   
 
 
 The application runs on top of iExec platform and generate a market report, it performs exploratory data analysis
-and builds machine learning models to predict market prices in future 30 days for the above 3 cryptocurrencies.
+and use machine learning algorithm to predict market prices in future 30 days for the above 3 cryptocurrencies and Bitcoin.
 
-About iExec:
+
+## About iExec:
 
 iExec is building the future of the Internet infrastructure by decentralizing the cloud computing market. It is the first blockchain-based cloud computing marketplace.
 The iExec network connects cloud resource sellers with cloud resource buyers, encouraging an ecosystem of decentralized and autonomous, privacy-preserving applications.
@@ -15,11 +16,11 @@ This network aims at providing companies with scalable, secure and easy access t
 
 
 Source:
-The code is derivated from:
+The code is forked from:
 
 * https://github.com/jieyima/Cryptocurrency_Investment_Analysis_and_Modeling for the analysis part
 
-* https://github.com/JesseVent/crypto for the building dataset
+* https://github.com/JesseVent/crypto to build datasets
 
 
 ## Create and store datasets on your data wallet
@@ -41,13 +42,14 @@ Then create the zip file and place the zip in the dataset repo.
 
 ### Register the dataset on the blockchain
 
-Let's register the access to the dataset, the dataset is not store in ethereum, only access and managament.
+Let's register the dataset, the dataset is not store on the blockchain ethereum, the blockchain is only use to manage the ownership, the access and the monetization.
 
 ```
 iexec dataset init  
 ```
-Edit the dataset info in iexec.json file
-The path to dataset must public and accessible from anywere.  
+Edit the dataset info in iexec.json file.
+
+The dataset file must have a public access.  
 
 The checksum will be use to check the integrity on the file (not implemented).
 
@@ -59,6 +61,7 @@ The checksum will be use to check the integrity on the file (not implemented).
   "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
+Deploy
 
 ```
 iexec dataset deploy
@@ -70,14 +73,14 @@ Please enter your password to unlock your wallet [hidden]
 
 ### Publish selling order for the dataset.
 
-As the dataset is now registered ad ownership is store on the blockchain; the owner has to publish an order defining the price, the volume and restrictions for the usage of the dataset.
+As the dataset is now registered and ownership is stored on the blockchain; the owner has to publish order defining the price, the volume and restrictions for the usage of the dataset.
 
 ```
 iexec order init --dataset
 ```
 
-Let's create an order with price at  10 nRLC and a volume of 1000 tasks, with no extra restriction.
-The dataset has no usage restriction for user, worker pool and app.
+Let's create an order with 10 nRLC cost and 1000 tasks allowed with no extra restriction.
+This dataset has no restricted usage for user, worker pool and app.
 
 Edit the iexec.json file.
 
@@ -115,7 +118,7 @@ sign:               0x343c2b251e5ec169c94b989e01620aaddfaa2fe8dc7676e915c55b3ebe
 and then publish the order
 
 ```
-iexec order publish --dataset --wallet-file data_owner_wallet
+iexec order publish --dataset
 ℹ using chain [kovan]
 ? Using wallet data_owner_wallet
 Please enter your password to unlock your wallet [hidden]
@@ -179,8 +182,6 @@ Edit iexec.json file, and set up the name, the address and the hash of the docke
 For a docker the checksum is obtained with a docker of the image
 Do not forget to add a "0x" prefix to the hash.
 
-"checksum": "0xhashdockerimage"   
-
 ```
 "app": {
     "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
@@ -207,7 +208,7 @@ Please enter your password to unlock your wallet [hidden]
 Create the  configuration section in iexec.json
 
 ```
-iexec order init --app --wallet-file developper_wallet
+iexec order init --app
 ℹ using chain [kovan]
 ✔ Saved default apporder in "iexec.json", you can edit it:
 app:                0x814FCFf7aa640F3b59CADF8011F89B55D3De3368
@@ -225,7 +226,7 @@ For this app, restriction are not required.
 Sign and publish app order
 
 ```
-iexec order sign --app --wallet-file developper_wallet
+iexec order sign --app
 ℹ using chain [kovan]
 ? Using wallet developper_wallet
 Please enter your password to unlock your wallet [hidden]
@@ -243,7 +244,7 @@ sign:               0xc06660e58e7d3eed37b967986ed060be0f5cb67351cb4d9b2bf52ece2c
 
 
 ```
-iexec order publish --app --wallet-file developper_wallet
+iexec order publish --app
 ? Using wallet developper_wallet
 ? Using wallet developper_wallet
 Please enter your password to unlock your wallet [hidden]
@@ -262,13 +263,25 @@ c2aef59972ae3a35b319310e5fdfe43cbb72ba0e57050b1b
 ✔ apporder successfully published with orderHash 0x940b6be33f364ed4fa2d70e09451118d1e50433da5ced4d477e5c0dceb843610
 ```
 
-##Run a analysis
+## Buy a crypto coin analysis
 
-From the marketplace, this is possible to process a cloud coin analysis   
-You only need dataset and dapp addresses deployed, the markeplace find out the corresponding orders.
+From the marketplace, https://v3.market.iex.ec, this is possible to process a cloud coin analysis   
+You only need the dataset and dapp addresses deployed just created, the markeplace is able to find the corresponding orders.
 
 ![buy a analysis](images/buy.png)
 
-Future work/next step:
+Information from CoinMarketCap is updated everyday, so dataset can be created daily without changing the existing application, the app has been designed to support updated datasets.
+
+But it is strongly recommended to improve the application and provide improved analysis.
+
+## Your daily report
+
+your report contains a market report with a collection of plots    
+
+![Candle stick](images/cancdlestick_chart_for_rlc.png)
+![RoI](images/roi.png)
+
+## Future work/next step:
+
  * Best prediction algorithm.
- * use iExec security layers for data privacy.   
+ * Use iExec security layers for data privacy.
