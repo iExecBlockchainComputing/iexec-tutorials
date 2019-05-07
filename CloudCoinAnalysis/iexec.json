@@ -22,16 +22,16 @@
   },
   "order": {
     "apporder": {
-      "app": "0x814FCFf7aa640F3b59CADF8011F89B55D3De3368",
-      "appprice": 0,
-      "volume": 1000000,
+      "app": "0xe8dab3a22C6B5077796437a980C6F303f9763239",
+      "appprice": 1,
+      "volume": 1000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     },
     "datasetorder": {
-      "dataset": "0xFCE3F07D96b0f2458Bb82868087AcAE636232B4E",
+      "dataset": "0x62E2750208114e9ABAB091D077553623a54B0d57",
       "datasetprice": 10,
       "volume": 1000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -55,8 +55,8 @@
   ],
   "dataset": {
     "owner": "0x9CdDC59c3782828724f55DD4AB4920d98aA88418",
-    "name": "cloincoin-20190502-dataset",
-    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-02.zip",
+    "name": "cloincoin-dataset-20190506",
+    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-06.zip",
     "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
 }
