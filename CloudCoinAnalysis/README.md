@@ -298,7 +298,12 @@ cp dataset/cloudcoin_2019-05-06.zip iexec_in/. docker run -v `pwd`/iexec_in:/iex
 
 Your report contains a market report with a collection of plots    
 
+Daily candlestick for RLC token :  
+
 ![Candle stick](images/cancdlestick_chart_for_rlc.png)
+
+Return on Investments in 2019 :
+
 ![RoI](images/roi.png)
 
 ### Method 1: from the marketplace
