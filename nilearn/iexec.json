@@ -13,7 +13,7 @@
     "trust": 0
   },
   "app": {
-    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+    "owner": "0xA1162f07afC3e45Ae89D2252706eB355F6349641",
     "name": "Nilearn",
     "type": "DOCKER",
     "multiaddr": "registry.hub.docker.com/iexechub/nilearn:1.0",
@@ -22,9 +22,9 @@
   },
   "order": {
     "apporder": {
-      "app": "0x7d328FF37B8BaEb58d9bc85A8f8E242a82d702Fd",
-      "appprice": 16,
-      "volume": 1000,
+      "app": "0x91bB56C21a4E9D07FC651a9c24F240A5148Bc511",
+      "appprice": 0,
+      "volume": 1000000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
