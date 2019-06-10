@@ -29,8 +29,8 @@
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     },
     "datasetorder": {
-      "dataset": "0xCF739310474FfEc742ce3852a2ab5813055b1086",
-      "datasetprice": 15,
+      "dataset": "0xc8C4EF24104E4299382E4c2BC5b6108cB8ca8900",
+      "datasetprice": 0,
       "volume": 1000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "apprestrict": "0x0000000000000000000000000000000000000000",
@@ -53,7 +53,7 @@
   ],
   "dataset": {
     "owner": "0xA1162f07afC3e45Ae89D2252706eB355F6349641",
-    "name": "cloincoin-dataset-20190512",
+    "name": "data20190512",
     "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-12.zip",
     "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
