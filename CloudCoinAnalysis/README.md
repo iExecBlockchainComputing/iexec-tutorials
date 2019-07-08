@@ -44,7 +44,7 @@ zip dataset/cloudcoin_2019-05-06.zip cloudcoin_2019-05-06.csv
 ## Installing iExec
 
 Follow instructions to install the SDK and set up your wallet  
-https://docs.iex.ec/gettingstarted.html
+https://docs.iex.ec/quickstart.html
 and
 https://docs.iex.ec/wallet.html
 
