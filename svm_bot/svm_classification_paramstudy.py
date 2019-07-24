@@ -22,7 +22,7 @@ if kernel not in  "linear" "rbf" "poly":
     print ("error for kernel:", kernel )
     exit(1);
 
-if ((int(_gamma) >= 15) or (int(_gamma) <= 5)):
+if ((int(_gamma) > 15) or (int(_gamma) < 5)):
     print ("error for gamma:", _gamma )
     exit(1);
 
