@@ -1,13 +1,10 @@
 #!/bin/bash
+
 cd /
-# Data Management
-if [ -f /iexec_in/parameters.csv ]; then
-  echo "data input exists"
+echo $IEXEC_BOT_TASK_SIZE
+echo $IEXEC_INPUT_FILE_NAME_1
+echo $IEXEC_BOT_TASK_INDEX
 
-else
-  echo "data not found ... download"
-  wget https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/svm_bot/parameters.csv
+cp /iexec_in/$IEXEC_INPUT_FILE_NAME_1 /parameters.csv
 
-fi
-
-python3  svm_classification_paramstudy.py /iexec_out/ $1
+python3  svm_classification_paramstudy.py /iexec_out/ $IEXEC_BOT_TASK_INDEX
