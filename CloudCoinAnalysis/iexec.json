@@ -20,22 +20,49 @@
   },
   "order": {
     "apporder": {
-      "app": "0x832b2b198A8352c69acF690e8FBB38ab2C5d6471",
+      "app": "0xFAA9b92F1b98C6598d6672c4D9397DC2a19A1c87",
       "appprice": 0,
-      "volume": 100000,
+      "volume": 1000000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     },
     "datasetorder": {
-      "dataset": "0xc8C4EF24104E4299382E4c2BC5b6108cB8ca8900",
+      "dataset": "0xFAA9b92F1b98C6598d6672c4D9397DC2a19A1c87",
       "datasetprice": 0,
-      "volume": 1000,
+      "volume": 1000000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "apprestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    },
+    "workerpoolorder": {
+      "workerpool": "0x0000000000000000000000000000000000000000",
+      "workerpoolprice": 0,
+      "volume": 1,
+      "category": 0,
+      "trust": 0,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "apprestrict": "0x0000000000000000000000000000000000000000",
+      "datasetrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    },
+    "requestorder": {
+      "app": "0x0000000000000000000000000000000000000000",
+      "appmaxprice": 0,
+      "dataset": "0x0000000000000000000000000000000000000000",
+      "datasetmaxprice": 0,
+      "workerpool": "0x0000000000000000000000000000000000000000",
+      "workerpoolmaxprice": 0,
+      "volume": 1,
+      "category": 0,
+      "trust": 0,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "beneficiary": "0x81157940e979E671045716f0162690ca0C96309C",
+      "callback": "0x0000000000000000000000000000000000000000",
+      "params": "",
+      "requester": "0x81157940e979E671045716f0162690ca0C96309C"
     }
   },
   "dapps": [
@@ -45,16 +72,19 @@
         "42": "0x0000000000000000000000000000000000000000"
       },
       "buyConf": {
-        "params": "{ \"0\": \"\" }",
+        "params": {
+          "0": ""
+        },
         "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "trust": 0
+        "trust": 0,
+        "callback": "0x0000000000000000000000000000000000000000"
       }
     }
   ],
   "dataset": {
-    "owner": "0xA1162f07afC3e45Ae89D2252706eB355F6349641",
-    "name": "data20190512",
-    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-12.zip",
+    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+    "name": "coindata_sgx",
+    "multiaddr": "/ipfs/QmW2WQi7j6c7UgJTarActp7tDNikE4B2qXtFCfLPdsgaTQ",
     "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
 }

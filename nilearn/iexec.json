@@ -31,13 +31,40 @@
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     },
     "datasetorder": {
-      "dataset": "0x3475e7E80FE99e5D085db9Acc58b3C0Fcf508b36",
-      "datasetprice": 2,
-      "volume": 1000,
+      "dataset": "0xBa1A43Fba1CF15C9240B0191F209184A5FaB3C85",
+      "datasetprice": 0,
+      "volume": 1000000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "apprestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    },
+    "workerpoolorder": {
+      "workerpool": "0x0000000000000000000000000000000000000000",
+      "workerpoolprice": 0,
+      "volume": 1,
+      "category": 0,
+      "trust": 0,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "apprestrict": "0x0000000000000000000000000000000000000000",
+      "datasetrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    },
+    "requestorder": {
+      "app": "0x0000000000000000000000000000000000000000",
+      "appmaxprice": 0,
+      "dataset": "0x0000000000000000000000000000000000000000",
+      "datasetmaxprice": 0,
+      "workerpool": "0x0000000000000000000000000000000000000000",
+      "workerpoolmaxprice": 0,
+      "volume": 1,
+      "category": 0,
+      "trust": 0,
+      "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "beneficiary": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+      "callback": "0x0000000000000000000000000000000000000000",
+      "params": "",
+      "requester": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310"
     }
   },
   "dapps": [
@@ -47,16 +74,19 @@
         "42": "0x0000000000000000000000000000000000000000"
       },
       "buyConf": {
-        "params": "{ \"0\": \"\" }",
+        "params": {
+          "0": ""
+        },
         "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "trust": 0
+        "trust": 0,
+        "callback": "0x0000000000000000000000000000000000000000"
       }
     }
   ],
   "dataset": {
-    "owner": "0x9CdDC59c3782828724f55DD4AB4920d98aA88418",
-    "name": "nilearn_neurovault_dataset",
-    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/nilearn/dataset/nilearn_data.zip",
+    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
+    "name": "datasetsgx_nilearn",
+    "multiaddr": "/ipfs/QmW2WQi7j6c7UgJTarActp7tDNikE4B2qXtFCfLPdsgaTQ",
     "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
 }

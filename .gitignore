@@ -1,2 +1,7 @@
 nsfw/iexec_in
 nsfw/iexec_out
+**/chain.json
+**/deployed.json
+**/iexec.json
+**/orders.json
+**/
