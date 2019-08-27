@@ -48,7 +48,7 @@ https://docs.iex.ec/quickstart.html
 and
 https://docs.iex.ec/wallet.html
 
-In this demo, 2 wallet has been generated for both developer and data owner: **developer_wallet** and **data_owner_wallet**.      
+In this demo, 2 wallets have been generated for both developer and data owner: **developer_wallet** and **data_owner_wallet**.      
 The sdk options **--wallet_file=** will be used to select the good owner for all commands.  
 
 ### Register the dataset on the blockchain
