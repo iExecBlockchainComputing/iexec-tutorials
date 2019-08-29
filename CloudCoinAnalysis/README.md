@@ -3,8 +3,7 @@
 
 Analysis of the 3 main cryptocurrencies offering a cloud computing solution:  GOLEM, SONM, IEXEC and Bitcoin.    
 
-The application runs on top of iExec platform and generate a market report, it performs exploratory data analysis
-and use machine learning algorithm to predict market prices in future 30 days for the above 3 cryptocurrencies and Bitcoin.
+The application runs on top of iExec platform and generate a market report, it performs exploratory data analysis, generating graphes, and use a machine learning algorithm to predict the market prices in future 30 days for the 3 cryptocurrencies and also Bitcoin.
 
 
 ## About iExec:
@@ -18,14 +17,13 @@ This network aims at providing companies with scalable, secure and easy access t
 
 The code is forked from:
 
-* https://github.com/jieyima/Cryptocurrency_Investment_Analysis_and_Modeling for the analysis part
-
-* https://github.com/JesseVent/crypto to build datasets
+* https://github.com/jieyima/Cryptocurrency_Investment_Analysis_and_Modeling for the application 
+* https://github.com/JesseVent/crypto to build the datasets
 
 
 ## Create and store datasets on your data wallet
 
-The Crypto R package helps to download historical Cryptocurrency Prices For any Tokens using the CoinMarketCap API
+The Crypto R package helps to download historical Cryptocurrency Prices using the CoinMarketCap API
 
 ### Generate the dataset file
 
@@ -34,8 +32,8 @@ The getcloudcoin.R script generates the csv dataset file, containing the full hi
 ```
  Rscript getcloudcoin.R
 ```
-
-Then create the zip file and place the zip in the dataset repo.
+The script creates locally a cloudcoin_YYYY-MM-DD.csv file. 
+Then generate the zip file and place it in the dataset repo.
 ```
 zip dataset/cloudcoin_2019-05-06.zip cloudcoin_2019-05-06.csv
  adding: cloudcoin_2019-05-06.csv (deflated 67%)
@@ -48,21 +46,21 @@ https://docs.iex.ec/quickstart.html
 and
 https://docs.iex.ec/wallet.html
 
-In this demo, 2 wallets have been generated for both developer and data owner: **developer_wallet** and **data_owner_wallet**.      
+In this demo, 2 wallets have been generated one for for the app developer and one for the data owner: **developer_wallet** and **data_owner_wallet**.      
 The sdk options **--wallet_file=** will be used to select the good owner for all commands.  
 
 ### Register the dataset on the blockchain
 
-Let's register the dataset, the dataset is not store on the blockchain ethereum, the blockchain is only use to manage the ownership, the access and the monetization.
+Let's register the dataset, the dataset is not store on the blockchain ethereum, the blockchain is only use to manage the data ownership, access and monetization.
 
 ```
 iexec dataset init --wallet-file data_owner_wallet
 ```
 Edit the dataset info in iexec.json file.
 
-The dataset file must have a public access.  
+The dataset file must have a public access on the web, the dataset has to be accessible from any machines.  
 
-The checksum will be use to check the integrity on the file (not implemented).
+The checksum will be use to check the integrity on the file. The dev is in progress, no need to fill in the checksum for the moment. 
 
 ```
 "dataset": {
@@ -72,7 +70,17 @@ The checksum will be use to check the integrity on the file (not implemented).
   "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
-Deploy
+The dataset is store in github, use the raw prefix to define the file path.
+In this example, the git link
+```
+https://github.com/iExecBlockchainComputing/iexec-tutorials/blob/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-06.zip
+```
+has to be replaced by 
+```
+https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-06.zip
+```
+
+Deploy the dataset with the iExec SDK 
 
 ```
 iexec dataset deploy --wallet-file data_owner_wallet
@@ -183,7 +191,7 @@ signer:               0x9CdDC59c3782828724f55DD4AB4920d98aA88418
 
 ## Deploy the application
 
-The application can process all datasets created as above
+The application can process all datasets created above
 
 The application is available at
 https://cloud.docker.com/u/iexechub/repository/docker/iexechub/cloudcoin/general
@@ -193,14 +201,22 @@ Source code in the current repository.
 ### Register applications on the blockchain
 
 The registration is similar to the dataset registration.
-First, we will register the application and then publish orders with defining price, volume and restriction.
+First, we will register the application and then publish orders with defining a price, a volume and restrictions.
 
 ```
 iexec app init
 ```
 
 Edit iexec.json file, and set up the name, the address and the hash of the docker image
-For a docker the checksum is obtained with a docker of the image
+"checksum" is the docker image checksum, obtained with a docker pull command, the hexadecimal number after "digest: sha256:"
+
+```
+docker pull registry.hub.docker.com/iexechub/cloudcoin
+Using default tag: latest
+latest: Pulling from iexechub/cloudcoin
+Digest: sha256:5496bd85e2b787b3a84dc7fb53e4d2c952f9eab13419e0f496be7eeefcc66bd6
+Status: Image is up to date for registry.hub.docker.com/iexechub/cloudcoin:latest
+```
 Do not forget to add a "0x" prefix to the hash.
 
 ```
@@ -224,7 +240,7 @@ Please enter your password to unlock your wallet [hidden]
 ✔ Deployed new app at address 0xe8dab3a22C6B5077796437a980C6F303f9763239
 ```
 
-### Publish app order
+### Publish an app order
 
 Create the  configuration section in iexec.json
 
@@ -291,7 +307,7 @@ Yes
 ```
 rm -rf iexec_in iexec_out
 mkdir iexec_in iexec_out
-cp dataset/cloudcoin_2019-05-06.zip iexec_in/. docker run -v `pwd`/iexec_in:/iexec_in -v `pwd`/iexec_out:/iexec_out -e DATASET_FILENAME="cloudcoin_2019-05-06.zip" iexechub/cloudcoin
+cp dataset/cloudcoin_2019-05-06.zip iexec_in/. docker run -v `pwd`/iexec_in:/iexec_in -v `pwd`/iexec_out:/iexec_out -e IEXEC_DATASET_FILENAME="cloudcoin_2019-05-06.zip" iexechub/cloudcoin
 ```
 
 ## Buy a crypto coin analysis and get your daily report
@@ -310,8 +326,8 @@ Return on Investments in 2019 :
 
 https://v3.market.iex.ec.
 
-This is possible to process a cloud coin analysis   
-You only need the dataset and dapp addresses deployed just created, the markeplace is able to find the corresponding orders.
+This is possible to process a cloud coin analysis from the marketplace,    
+You only need the fill in the dataset and the dapp addresses you just created and deployed, the marketplace is able to find the corresponding orders behind the scene.
 The corresponding addresses were given by **iexec app deploy** and **iexec dataset deploy** command
 
 ![buy a analysis](images/buy.png)
@@ -322,11 +338,10 @@ TBD
 
 ## Get updated data
 
-Information from CoinMarketCap is daily updated, so new dataset can be created everyday without changing the existing application, the app has no dataset restriction and is self-adaptable to date changes.
-Similarly, it is recommended to improve the application and add new feature for a better analysis.
-
+The information from CoinMarketCap website are daily updated, so new dataset can be created everyday. The application is self-adapted to date changes.
+Feel free to propose improvement or develop your own analysis.  
 
 ## Future work/next step:
 
- * Best prediction algorithm.
- * Use iExec security layers for data privacy.
+ * Improve data visualization and prediction algorithmes.
+ * Use iExec security layers (Trusted execution environment) for data privacy.
