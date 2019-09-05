@@ -4,12 +4,12 @@ echo "file to download is " $1
 wget $1
 input=$(basename $1)
 
-echo "DATASET_FILENAME is" $DATASET_FILENAME 
+echo "DATASET_FILENAME is" $IEXEC_DATASET_FILENAME 
 #cp $input /iexec_out/.
 
 #Download (unzip) the model as a dataset
 ls /iexec_in
-mv /iexec_in/$DATASET_FILENAME /iexec_in/nsfw_model.zip
+mv /iexec_in/$IEXEC_DATASET_FILENAME /iexec_in/nsfw_model.zip
 cp /iexec_in/nsfw_model.zip /.
 unzip nsfw_model.zip
 
