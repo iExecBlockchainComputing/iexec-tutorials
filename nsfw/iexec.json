@@ -31,7 +31,7 @@
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     },
     "datasetorder": {
-      "dataset": "0x9b190AF3A884BA2c08DB737E974668b6FfCD1f07",
+      "dataset": "0x2D2479fc3F37De28e338a957dAEF8EF083a00EbC",
       "datasetprice": 1,
       "volume": 1000000,
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -59,7 +59,7 @@
   "dataset": {
     "owner": "0x9CdDC59c3782828724f55DD4AB4920d98aA88418",
     "name": "nsfw_prediction_erz",
-    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/nsfw/model/dataset_nsfw_model.zip.zip",
+    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/nsfw/model/nsfw_model.zip.enc",
     "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
 }
