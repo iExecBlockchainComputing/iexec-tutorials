@@ -17,7 +17,7 @@ This network aims at providing companies with scalable, secure and easy access t
 
 The code is forked from:
 
-* https://github.com/jieyima/Cryptocurrency_Investment_Analysis_and_Modeling for the application 
+* https://github.com/jieyima/Cryptocurrency_Investment_Analysis_and_Modeling for the application
 * https://github.com/JesseVent/crypto to build the datasets
 
 
@@ -32,11 +32,11 @@ The getcloudcoin.R script generates the csv dataset file, containing the full hi
 ```
  Rscript getcloudcoin.R
 ```
-The script creates locally a cloudcoin_YYYY-MM-DD.csv file. 
+The script creates locally a cloudcoin_YYYY-MM-DD.csv file.
 Then generate the zip file and place it in the dataset repo.
 ```
-zip dataset/cloudcoin_2019-05-06.zip cloudcoin_2019-05-06.csv
- adding: cloudcoin_2019-05-06.csv (deflated 67%)
+zip dataset/cloudcoin_2019-10-29.zip cloudcoin_2019-10-29.csv
+ adding: cloudcoin_2019-10-29.csv (deflated 67%)
 ```
 
 ## Installing iExec
@@ -47,7 +47,8 @@ and
 https://docs.iex.ec/wallet.html
 
 In this demo, 2 wallets have been generated one for for the app developer and one for the data owner: **developer_wallet** and **data_owner_wallet**.      
-The sdk options **--wallet_file=** will be used to select the good owner for all commands.  
+The sdk options **--wallet_file=** will be used to select the good owner for all commands.
+For convenience, you can use your own wallet for both, app and dataset.
 
 ### Register the dataset on the blockchain
 
@@ -60,35 +61,34 @@ Edit the dataset info in iexec.json file.
 
 The dataset file must have a public access on the web, the dataset has to be accessible from any machines.  
 
-The checksum will be use to check the integrity on the file. The dev is in progress, no need to fill in the checksum for the moment. 
+The checksum will be use to check the integrity on the file. The dev is in progress, no need to fill in the checksum for the moment.
 
 ```
 "dataset": {
   "owner": "0x9CdDC59c3782828724f55DD4AB4920d98aA88418",
-  "name": "cloincoin-dataset-20190506",
-  "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-06.zip",
+  "name": "cloincoin-dataset-20191029",
+  "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-10-29.zip",
   "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
 The dataset is store in github, use the raw prefix to define the file path.
 In this example, the git link
 ```
-https://github.com/iExecBlockchainComputing/iexec-tutorials/blob/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-06.zip
+https://github.com/iExecBlockchainComputing/iexec-tutorials/blob/master/CloudCoinAnalysis/dataset/cloudcoin_2019-10-29.zip
 ```
-has to be replaced by 
+has to be replaced by
 ```
-https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-05-06.zip
+https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-10-29.zip
 ```
 
-Deploy the dataset with the iExec SDK 
+Deploy the dataset with the iExec SDK
 
 ```
 iexec dataset deploy --wallet-file data_owner_wallet
 ℹ using chain [kovan]
 ? Using wallet data_owner_wallet
 Please enter your password to unlock your wallet [hidden]
-✔ Deployed new dataset at address 0x62E2750208114e9ABAB091D077553623a54B0d57
-
+✔ Deployed new dataset at address 0x9D1C683E607FdE13C76fb248B08E916cd0C55862
 ```
 
 ### Publish selling order for the dataset.
@@ -96,10 +96,9 @@ Please enter your password to unlock your wallet [hidden]
 As the dataset is now registered and the ownership is stored on the blockchain; the owner has to publish order defining the price, the volume and restrictions for the usage of the dataset.
 
 ```
-iexec order init --dataset --wallet-file data_owner_wallet
-ℹ using chain [kovan]
+iexec order init --dataset --wallet-file data_owner_walletℹ using chain [kovan]
 ✔ Saved default datasetorder in "iexec.json", you can edit it:
-dataset:            0x62E2750208114e9ABAB091D077553623a54B0d57
+dataset:            0x9D1C683E607FdE13C76fb248B08E916cd0C55862
 datasetprice:       0
 volume:             1000000
 tag:                0x0000000000000000000000000000000000000000000000000000000000000000
@@ -116,7 +115,7 @@ Edit the iexec.json file.
 
 ```
 "datasetorder": {
-  "dataset": "0x62E2750208114e9ABAB091D077553623a54B0d57",
+  "dataset": "0x9D1C683E607FdE13C76fb248B08E916cd0C55862",
   "datasetprice": 10,
   "volume": 1000,
   "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -129,20 +128,19 @@ Edit the iexec.json file.
 Sign the order
 
 ```
-iexec order sign --dataset --wallet-file data_owner_wallet
-ℹ using chain [kovan]
+iexec order sign --dataset --wallet-file data_owner_walletℹ using chain [kovan]
 ? Using wallet data_owner_wallet
 Please enter your password to unlock your wallet [hidden]
 ✔ datasetorder signed and saved in orders.json, you can share it:
-dataset:            0x62E2750208114e9ABAB091D077553623a54B0d57
+dataset:            0x9D1C683E607FdE13C76fb248B08E916cd0C55862
 datasetprice:       10
 volume:             1000
 tag:                0x0000000000000000000000000000000000000000000000000000000000000000
 apprestrict:        0x0000000000000000000000000000000000000000
 workerpoolrestrict: 0x0000000000000000000000000000000000000000
 requesterrestrict:  0x0000000000000000000000000000000000000000
-salt:               0xaecbab832d62f27b8980a8ad16ab3ad1e8c2556e0501c129ce6a7d5d357acca7
-sign:               0x3a8556cfa18d7639a5069b65316b4e209a26e8a36c3c3eac50e46fdbf5fb46da4d2054d4e6e1065258918c8fe2aadbeddd8a74380c60d8caf7de868a5786d0091b
+salt:               0xd7ed0285e53a666333474c3c2f1b98305577d62dae3501a8892c182d01b230f8
+sign:               0x974d30aaa541d736c351fb0bb87f22334547acb23b4bcd0e7212a67d0f03b3d13c98e7783a6ddbcbe81491c516d806c6e06977ea16297d93bb74022ecf1cfde91c
 ```
 and then publish the order
 
@@ -152,51 +150,52 @@ iexec order publish --dataset --wallet-file data_owner_wallet
 ? Using wallet data_owner_wallet
 Please enter your password to unlock your wallet [hidden]
 ? Do you want to publish the following datasetorder?
-dataset:            0x62E2750208114e9ABAB091D077553623a54B0d57
+dataset:            0x9D1C683E607FdE13C76fb248B08E916cd0C55862
 datasetprice:       10
 volume:             1000
 tag:                0x0000000000000000000000000000000000000000000000000000000000000000
 apprestrict:        0x0000000000000000000000000000000000000000
 workerpoolrestrict: 0x0000000000000000000000000000000000000000
 requesterrestrict:  0x0000000000000000000000000000000000000000
-salt:               0xaecbab832d62f27b8980a8ad16ab3ad1e8c2556e0501c129ce6a7d5d357acca7
-sign:               0x3a8556cfa18d7639a5069b65316b4e209a26e8a36c3c3eac50e46fdbf5fb46da4d2054d4e6e1065258
-918c8fe2aadbeddd8a74380c60d8caf7de868a5786d0091b
+salt:               0xd7ed0285e53a666333474c3c2f1b98305577d62dae3501a8892c182d01b230f8
+sign:               0x974d30aaa541d736c351fb0bb87f22334547acb23b4bcd0e7212a67d0f03b3d13c98e7783a6ddbcbe8
+1491c516d806c6e06977ea16297d93bb74022ecf1cfde91c
  Yes
-✔ datasetorder successfully published with orderHash 0x330d22f55924fa0bf7573ebfcc67b37123c89dbb6b4dd4f8a68eaeca9dad76f6
+✔ datasetorder successfully published with orderHash 0x0cad72bdf9447d3755cd2a55480038c3e4eeb62044b1e9b2f4c2f29ceda9b31e
 ```
 
 Check the order status
 
 ```
-iexec order show --dataset 0x1ad297bfb4aa01d04c8c8919f224b304b043bbe7e5c56616a8a27f7f668595dd
+iexec order show --dataset 0x0cad72bdf9447d3755cd2a55480038c3e4eeb62044b1e9b2f4c2f29ceda9b31e
 ℹ using chain [kovan]
-✔ datasetorder with orderHash 0x1ad297bfb4aa01d04c8c8919f224b304b043bbe7e5c56616a8a27f7f668595dd details:
-orderHash:            0x1ad297bfb4aa01d04c8c8919f224b304b043bbe7e5c56616a8a27f7f668595dd
+✔ datasetorder with orderHash 0x0cad72bdf9447d3755cd2a55480038c3e4eeb62044b1e9b2f4c2f29ceda9b31e details:
+orderHash:            0x0cad72bdf9447d3755cd2a55480038c3e4eeb62044b1e9b2f4c2f29ceda9b31e
 order:
-  dataset:            0xFCE3F07D96b0f2458Bb82868087AcAE636232B4E
-  datasetprice:       10
-  volume:             1000
-  tag:                0x0000000000000000000000000000000000000000000000000000000000000000
-  apprestrict:        0x0000000000000000000000000000000000000000
-  workerpoolrestrict: 0x0000000000000000000000000000000000000000
+  sign:               0x974d30aaa541d736c351fb0bb87f22334547acb23b4bcd0e7212a67d0f03b3d13c98e7783a6ddbcbe81491c516d806c6e06977ea16297d93bb74022ecf1cfde91c
+  salt:               0xd7ed0285e53a666333474c3c2f1b98305577d62dae3501a8892c182d01b230f8
   requesterrestrict:  0x0000000000000000000000000000000000000000
-  salt:               0x5f70873d19c66377c8b03c57fa108c94153e9fc20549216b8b74fed2ee030082
-  sign:               0x343c2b251e5ec169c94b989e01620aaddfaa2fe8dc7676e915c55b3ebe1454fa5b6dcbf9c4e9aacdd612725a108b6677cd7976cffe76a8c50a3a19c90847c2281b
+  workerpoolrestrict: 0x0000000000000000000000000000000000000000
+  apprestrict:        0x0000000000000000000000000000000000000000
+  tag:                0x0000000000000000000000000000000000000000000000000000000000000000
+  volume:             1000
+  datasetprice:       10
+  dataset:            0x9D1C683E607FdE13C76fb248B08E916cd0C55862
 remaining:            1000
 status:               open
-publicationTimestamp: 2019-05-03T12:02:54.960Z
+publicationTimestamp: 2019-10-30T22:38:27.252Z
 signer:               0x9CdDC59c3782828724f55DD4AB4920d98aA88418
 ```
+Now the dataset is deployed and we published dataset order, without restriction, so anyone can use my dataset with an app with the pay per use model. You note that is not sustainable and safe model because anynone should copy the dataset. We'll come back later on this point.      
 
 ## Deploy the application
 
-The application can process all datasets created above
+The application is already dockerized and it can process all datasets created with the R script, the data are daily updated.
 
 The application is available at
-https://cloud.docker.com/u/iexechub/repository/docker/iexechub/cloudcoin/general
+https://hub.docker.com/r/iexechub/cloudcoin
 
-Source code in the current repository.
+Source code in the current repository: Dockerfile, cloudcoin.py and entrypoint.sh
 
 ### Register applications on the blockchain
 
@@ -237,7 +236,8 @@ iexec app deploy --wallet-file developer_wallet
 ℹ using chain [kovan]
 ? Using wallet developer_wallet
 Please enter your password to unlock your wallet [hidden]
-✔ Deployed new app at address 0xe8dab3a22C6B5077796437a980C6F303f9763239
+✔ Deployed new app at address 0xbE55B58a1e1389C453A9DDf4fEe646aB2fcccA88
+
 ```
 
 ### Publish an app order
@@ -246,9 +246,10 @@ Create the  configuration section in iexec.json
 
 ```
 iexec order init --app
+
 ℹ using chain [kovan]
 ✔ Saved default apporder in "iexec.json", you can edit it:
-app:                0x814FCFf7aa640F3b59CADF8011F89B55D3De3368
+app:                0xbE55B58a1e1389C453A9DDf4fEe646aB2fcccA88
 appprice:           0
 volume:             1000000
 tag:                0x0000000000000000000000000000000000000000000000000000000000000000
@@ -271,17 +272,15 @@ iexec order sign --app --wallet-file developer_wallet
 ? Using wallet developer_wallet
 Please enter your password to unlock your wallet [hidden]
 ✔ apporder signed and saved in orders.json, you can share it:
-app:                0xe8dab3a22C6B5077796437a980C6F303f9763239
+app:                0xbE55B58a1e1389C453A9DDf4fEe646aB2fcccA88
 appprice:           1
 volume:             1000
 tag:                0x0000000000000000000000000000000000000000000000000000000000000000
 datasetrestrict:    0x0000000000000000000000000000000000000000
 workerpoolrestrict: 0x0000000000000000000000000000000000000000
 requesterrestrict:  0x0000000000000000000000000000000000000000
-salt:               0xbf0d689dd08cac63f33c110d3d183e6d3ad49841c268589da3e1a5b7c639033b
-sign:               0x22a7307c7704d98d9fcac4af0d93628ae9c1e420b2cbeababb0674592c94626963f5fa8e29ed6a5e9d7c8ac707dd5ebc6fbee8e93df1f6a78930f8865977e9c91b
-
-
+salt:               0x03b14a6ba49a5a8a8a3c5cd51c646a93967d27763e63d6ff7adbbb43630afbfd
+sign:               0x5ea9399d0c673e6d1e07e84cb7214129405dba5f791281369732d039ea8fd3bd71fd5af2adf68366c60dc289564fb1920ba9c55066dc458080112ba7c1cfd6351c
 ```
 
 ```
@@ -290,25 +289,125 @@ iexec order publish --app --wallet-file developer_wallet
 ? Using wallet developer_wallet
 Please enter your password to unlock your wallet [hidden]
 ? Do you want to publish the following apporder?
-app:                0xe8dab3a22C6B5077796437a980C6F303f9763239
+app:                0xbE55B58a1e1389C453A9DDf4fEe646aB2fcccA88
 appprice:           1
 volume:             1000
 tag:                0x0000000000000000000000000000000000000000000000000000000000000000
 datasetrestrict:    0x0000000000000000000000000000000000000000
 workerpoolrestrict: 0x0000000000000000000000000000000000000000
 requesterrestrict:  0x0000000000000000000000000000000000000000
-salt:               0xbf0d689dd08cac63f33c110d3d183e6d3ad49841c268589da3e1a5b7c639033b
-sign:               0x22a7307c7704d98d9fcac4af0d93628ae9c1e420b2cbeababb0674592c94626963f5fa8e29ed6a5e9d
-7c8ac707dd5ebc6fbee8e93df1f6a78930f8865977e9c91b
-Yes
-✔ apporder successfully published with orderHash 0xc869749b88c7f6a58c64aa847c1c8cf723191dd3aa7b335a5f7a16b3d0f3a218
+salt:               0x03b14a6ba49a5a8a8a3c5cd51c646a93967d27763e63d6ff7adbbb43630afbfd
+sign:               0x5ea9399d0c673e6d1e07e84cb7214129405dba5f791281369732d039ea8fd3bd71fd5af2adf68366c6
+0dc289564fb1920ba9c55066dc458080112ba7c1cfd6351c
+ Yes
+✔ apporder successfully published with orderHash 0xe8b6639bf376d9f250c8e751ba22d305269bf75ee3675685cb2b21fd826431c3
 ```
+
 ### Test locally the app with dataset
+
 ```
 rm -rf iexec_in iexec_out
-mkdir iexec_in iexec_out
-cp dataset/cloudcoin_2019-05-06.zip iexec_in/. docker run -v `pwd`/iexec_in:/iexec_in -v `pwd`/iexec_out:/iexec_out -e IEXEC_DATASET_FILENAME="cloudcoin_2019-05-06.zip" iexechub/cloudcoin
+mkdir iexec_in iexec_out;
+cp dataset/cloudcoin_2019-10-29.zip iexec_in/. ; docker run -v `pwd`/iexec_in:/iexec_in -v `pwd`/iexec_out:/iexec_out -e IEXEC_DATASET_FILENAME="cloudcoin_2019-10-29.zip" iexechub/cloudcoin
 ```
+
+### Improve the security for the access to the dataset:
+
+Use dataset encryption and whitelisting of application  
+The data registration workflow is similar.
+
+```
+iexec dataset init --encrypted
+
+ℹ Created dataset folder tree for encryption
+✔ Saved default dataset in "iexec.json", you can edit it:
+owner:     0xfD4221dc0a8771F3Aa387EB4C0592d44D3cd671b
+name:      my-dataset
+multiaddr: /ipfs/QmW2WQi7j6c7UgJTarActp7tDNikE4B2qXtFCfLPdsgaTQ
+checksum:  0x0000000000000000000000000000000000000000000000000000000000000000
+
+```
+Copy the dataset in .datasets/original/
+
+```
+cp dataset/cloudcoin_2019-10-29.zip datasets/original/
+```
+
+Encrypt the dataset
+```
+iexec dataset encrypt
+ℹ Using default encryption aes-256-cbc
+ℹ Encrypting cloudcoin_2019-10-29.zip
+ℹ Generated secret for cloudcoin_2019-10-29.zip in /home/eric/apps/CloudCoinAnalysis/.secrets/datasets/cloudcoin_2019-10-29.zip.secret
+ℹ Generated encrypted file for cloudcoin_2019-10-29.zip in /home/eric/apps/CloudCoinAnalysis/datasets/encrypted/cloudcoin_2019-10-29.zip.enc
+✔ Encrypted datasets stored in "/home/eric/apps/CloudCoinAnalysis/datasets/encrypted", you can publish the encrypted files.
+Datasets keys stored in "/home/eric/apps/CloudCoinAnalysis/.secrets/datasets", make sure to backup them.
+Once you deploy an encrypted dataset run "iexec dataset push-secret [datasetAddress]" to securely share the dataset key with the workers.
+
+```
+
+It produces the secret key for decrypting the dataset
+
+```
+    cat ./.secrets/dataset/myAwsomeDataset.file.secret
+```
+and the encrypted dataset, you must share at a public url
+
+Push the secret in the Secret Management Service (sms)
+
+```
+iexec dataset push-secret --wallet-file data_owner_wallet
+ℹ using chain [kovan]
+? Using wallet data_owner_wallet
+Please enter your password to unlock your wallet [hidden]
+ℹ No --secret-path <path> option, using default /home/eric/apps/CloudCoinAnalysis/.secrets/datasets/dataset.secret
+✔ Secret successfully pushed (hash: 9ba2dc5d087b8a1e6e0ab58bc31dfc62101d10671b9d20d2f2ad3055d7ce9681)
+```
+
+```
+iexec dataset deploy --wallet-file data_owner_wallet
+ℹ using chain [kovan]
+? Using wallet data_owner_wallet
+Please enter your password to unlock your wallet [hidden]
+✔ Deployed new dataset at address 0x4DC61D8a028a600e4514A54053e07C61A1fA0Ee9
+```
+
+```
+iexec order sign --dataset --wallet-file data_owner_walletℹ using chain [kovan]
+? Using wallet data_owner_wallet
+Please enter your password to unlock your wallet [hidden]
+✔ datasetorder signed and saved in orders.json, you can share it:
+dataset:            0x4DC61D8a028a600e4514A54053e07C61A1fA0Ee9
+datasetprice:       20
+volume:             100
+tag:                0x0000000000000000000000000000000000000000000000000000000000000000
+apprestrict:        0x0000000000000000000000000000000000000000
+workerpoolrestrict: 0x0000000000000000000000000000000000000000
+requesterrestrict:  0x0000000000000000000000000000000000000000
+salt:               0x9daf409d23d998936e871f9e4e7a992814c440cebcae9330647e33f32b018904
+sign:               0xb37b0032084496e2f22167a55b95c4d40f9551ebecc045a5ccaf2f5d27491e7c68bcafeda7a64bea0a4252008317c8f5c92def5cdbf718023633df6414c3311a1c
+```
+
+```
+iexec order publish --dataset --wallet-file data_owner_wallet
+ℹ using chain [kovan]
+? Using wallet data_owner_wallet
+Please enter your password to unlock your wallet [hidden]
+? Do you want to publish the following datasetorder?
+dataset:            0x4DC61D8a028a600e4514A54053e07C61A1fA0Ee9
+datasetprice:       20
+volume:             100
+tag:                0x0000000000000000000000000000000000000000000000000000000000000000
+apprestrict:        0x0000000000000000000000000000000000000000
+workerpoolrestrict: 0x0000000000000000000000000000000000000000
+requesterrestrict:  0x0000000000000000000000000000000000000000
+salt:               0x9daf409d23d998936e871f9e4e7a992814c440cebcae9330647e33f32b018904
+sign:               0xb37b0032084496e2f22167a55b95c4d40f9551ebecc045a5ccaf2f5d27491e7c68bcafeda7a64bea0a
+4252008317c8f5c92def5cdbf718023633df6414c3311a1c
+ Yes
+✔ datasetorder successfully published with orderHash 0xc96f4ae21f14f8cf573448ac3f9b3f3aaf565bc071b11b370be7d25b9603bfa0
+```
+
 
 ## Buy a crypto coin analysis and get your daily report
 

@@ -8,10 +8,13 @@
   },
   "logo": "logo.png",
   "buyConf": {
-    "params": "{ \"0\": \" \" }"
+    "params": "",
+    "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "trust": "0",
+    "callback": "0x0000000000000000000000000000000000000000"
   },
   "app": {
-    "owner": "0xA1162f07afC3e45Ae89D2252706eB355F6349641",
+    "owner": "0x47d0Ab8d36836F54FD9587e65125Bbab04958310",
     "name": "CloudCoin",
     "type": "DOCKER",
     "multiaddr": "registry.hub.docker.com/iexechub/cloudcoin",
@@ -20,18 +23,18 @@
   },
   "order": {
     "apporder": {
-      "app": "0xFAA9b92F1b98C6598d6672c4D9397DC2a19A1c87",
-      "appprice": 0,
-      "volume": 1000000,
+      "app": "0xbE55B58a1e1389C453A9DDf4fEe646aB2fcccA88",
+      "appprice": "1",
+      "volume": "1000",
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     },
     "datasetorder": {
-      "dataset": "0xFAA9b92F1b98C6598d6672c4D9397DC2a19A1c87",
-      "datasetprice": 0,
-      "volume": 1000000,
+      "dataset": "0x4DC61D8a028a600e4514A54053e07C61A1fA0Ee9",
+      "datasetprice": "20",
+      "volume": "100",
       "tag": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "apprestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
@@ -81,8 +84,8 @@
   ],
   "dataset": {
     "owner": "0x9CdDC59c3782828724f55DD4AB4920d98aA88418",
-    "name": "cloincoin-dataset-20191029",
-    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-10-29.zip",
+    "name": "cloincoin-dataset-20191029.enc",
+    "multiaddr": "https://raw.githubusercontent.com/iExecBlockchainComputing/apps/master/CloudCoinAnalysis/dataset/cloudcoin_2019-10-29.zip.enc",
     "checksum": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
 }
