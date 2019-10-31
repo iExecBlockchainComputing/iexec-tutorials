@@ -5,14 +5,6 @@ Analysis of the 3 main cryptocurrencies offering a cloud computing solution:  GO
 
 The application runs on top of iExec platform and generate a market report, it performs exploratory data analysis, generating graphes, and use a machine learning algorithm to predict the market prices in future 30 days for the 3 cryptocurrencies and also Bitcoin.
 
-
-## About iExec:
-
-iExec is building the future of the Internet infrastructure by decentralizing the cloud computing market. It is the first blockchain-based cloud computing marketplace.
-The iExec network connects cloud resource sellers with cloud resource buyers, encouraging an ecosystem of decentralized and autonomous, privacy-preserving applications.
-This network aims at providing companies with scalable, secure and easy access to the services, datasets and computing resources they need. iExec’s technology relies on Ethereum smart contracts and allows for a virtual cloud infrastructure that provides high-performance computing services on-demand.
-
-
 ## Data and algorithm source:
 
 The code is forked from:
@@ -311,10 +303,11 @@ mkdir iexec_in iexec_out;
 cp dataset/cloudcoin_2019-10-29.zip iexec_in/. ; docker run -v `pwd`/iexec_in:/iexec_in -v `pwd`/iexec_out:/iexec_out -e IEXEC_DATASET_FILENAME="cloudcoin_2019-10-29.zip" iexechub/cloudcoin
 ```
 
-### Improve the security for the access to the dataset:
+### Encrypt the dataset to secure your dataset usage:
 
-Use dataset encryption and whitelisting of application  
+
 The data registration workflow is similar.
+Note, in real case, you should also white listing of application on trusted workerpool.  
 
 ```
 iexec dataset init --encrypted
@@ -353,16 +346,7 @@ It produces the secret key for decrypting the dataset
 ```
 and the encrypted dataset, you must share at a public url
 
-Push the secret in the Secret Management Service (sms)
-
-```
-iexec dataset push-secret --wallet-file data_owner_wallet
-ℹ using chain [kovan]
-? Using wallet data_owner_wallet
-Please enter your password to unlock your wallet [hidden]
-ℹ No --secret-path <path> option, using default /home/eric/apps/CloudCoinAnalysis/.secrets/datasets/dataset.secret
-✔ Secret successfully pushed (hash: 9ba2dc5d087b8a1e6e0ab58bc31dfc62101d10671b9d20d2f2ad3055d7ce9681)
-```
+Go back to the normal workflow: dataset registration and order publication
 
 ```
 iexec dataset deploy --wallet-file data_owner_wallet
@@ -408,6 +392,16 @@ sign:               0xb37b0032084496e2f22167a55b95c4d40f9551ebecc045a5ccaf2f5d27
 ✔ datasetorder successfully published with orderHash 0xc96f4ae21f14f8cf573448ac3f9b3f3aaf565bc071b11b370be7d25b9603bfa0
 ```
 
+Push the secret in the Secret Management Service (sms).
+
+```
+iexec dataset push-secret --wallet-file data_owner_wallet
+ℹ using chain [kovan]
+? Using wallet data_owner_wallet
+Please enter your password to unlock your wallet [hidden]
+ℹ No --secret-path <path> option, using default /home/eric/apps/CloudCoinAnalysis/.secrets/datasets/dataset.secret
+✔ Secret successfully pushed (hash: 9ba2dc5d087b8a1e6e0ab58bc31dfc62101d10671b9d20d2f2ad3055d7ce9681)
+```
 
 ## Buy a crypto coin analysis and get your daily report
 
@@ -421,7 +415,7 @@ Return on Investments in 2019 :
 
 ![RoI](images/roi.png)
 
-### Method 1: from the marketplace
+### from the marketplace
 
 https://v3.market.iex.ec.
 
@@ -431,10 +425,6 @@ The corresponding addresses were given by **iexec app deploy** and **iexec datas
 
 ![buy a analysis](images/buy.png)
 
-### Method 2 : using requestorder
-
-TBD
-
 ## Get updated data
 
 The information from CoinMarketCap website are daily updated, so new dataset can be created everyday. The application is self-adapted to date changes.
@@ -442,5 +432,6 @@ Feel free to propose improvement or develop your own analysis.
 
 ## Future work/next step:
 
- * Improve data visualization and prediction algorithmes.
+ * Improve data visualization and prediction algorithms.
+
  * Use iExec security layers (Trusted execution environment) for data privacy.

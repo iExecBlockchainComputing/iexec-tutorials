@@ -3,3 +3,16 @@
 This repo contains examples showing how to port applications and datasets on iExec infrastructure.
 
 
+## About iExec
+
+iExec is building the future of the Internet infrastructure by decentralizing the cloud computing market. It is the first blockchain-based cloud computing marketplace.
+The iExec network connects cloud resource sellers with cloud resource buyers, encouraging an ecosystem of decentralized and autonomous, privacy-preserving applications.
+This network aims at providing companies with scalable, secure and easy access to the services, datasets and computing resources they need. iExec’s technology relies on Ethereum smart contracts and allows for a virtual cloud infrastructure that provides high-performance computing services on-demand.
+
+Read more at docs.iex.ec
+
+
+### Add your application and your dataset (encrypted of not): CloudCoinAnalysis
+
+ 
+### Exemple of Bag of Tasks Application for parameters studies: svm_bot

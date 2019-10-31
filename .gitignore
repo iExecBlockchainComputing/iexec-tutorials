@@ -4,3 +4,5 @@ nsfw/iexec_out
 **/deployed.json
 **/iexec.json
 **/orders.json
+CloudCoinAnalysis/.secrets/
+CloudCoinAnalysis/datasets/
