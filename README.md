@@ -12,7 +12,16 @@ This network aims at providing companies with scalable, secure and easy access t
 Read more at docs.iex.ec
 
 
-### Add your application and your dataset (encrypted of not): CloudCoinAnalysis
+### CloudCoinAnalysis
 
+This tutorial is a nice introduction to develop app using a dataset management, encrypted or not.
  
-### Exemple of Bag of Tasks Application for parameters studies: svm_bot
+### svm_bot
+
+Exemple of Bag of Tasks Application for a parameters study for a machine learning application.
+
+### Blendergpu (released in december)
+
+A 3d rendering application using Bag of Tasks to distributed frames computation on gpu machines.    
+
+
