@@ -20,7 +20,7 @@ This tutorial is a nice introduction to develop app using a dataset management, 
 
 Exemple of Bag of Tasks Application for a parameters study for a machine learning application.
 
-### Blendergpu (released in december 20)
+### Blendergpu (released in december 2020)
 
 A 3d rendering application using Bag of Tasks to distributed frames computation on gpu machines.    
 
