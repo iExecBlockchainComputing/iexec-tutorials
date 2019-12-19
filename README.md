@@ -14,7 +14,7 @@ Read more at docs.iex.ec
 
 ### CloudCoinAnalysis
 
-This tutorial is a nice introduction to develop app using a dataset management, encrypted or not.
+This tutorial is a nice introduction to develop app with a dataset, encrypted or not.
  
 ### svm_bot
 
