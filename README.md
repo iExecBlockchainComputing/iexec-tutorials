@@ -18,9 +18,9 @@ This tutorial is a nice introduction to develop app with a dataset, encrypted or
  
 ### svm_bot
 
-Exemple of Bag of Tasks Application for a parameters study for a machine learning application.
+Parameters study for a machine learning application, using the Bag of Tasks feature (distributed computing feature)  
 
-### Blendergpu (released in december 2020)
+### Blendergpu
 
 A 3d rendering application using Bag of Tasks to distributed frames computation on gpu machines.    
 
